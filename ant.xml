@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+<project default="run" xmlns:if="ant:if" xmlns:unless="ant:unless">
+	<condition property="windows">
+		<os family="windows"/>
+	 </condition>
+	<property environment="env"/>
+	<target name="run">
+		<echo></echo>
+	</target>
+</project>

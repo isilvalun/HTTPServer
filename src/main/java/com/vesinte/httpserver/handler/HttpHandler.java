@@ -1,3 +1,4 @@
+package com.vesinte.httpserver.handler;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +11,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
+
+import com.vesinte.httpserver.Server;
 
 /**
  * @author ambarmodi

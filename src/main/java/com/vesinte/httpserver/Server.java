@@ -1,9 +1,12 @@
+package com.vesinte.httpserver;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.HashMap;
+
+import com.vesinte.httpserver.handler.HttpHandler;
 
 /**
  * @author ambarmodi
@@ -17,7 +20,7 @@ public class Server {
 	
 	public static void main(String[] args) {
 		try {
-			System.out.println("\n====================Server Details====================");
+			System.out.println("==================== Server Details ====================");
 			System.out.println("Server Machine: "+ InetAddress.getLocalHost().getCanonicalHostName());
 			System.out.println("Port number: " + PORT);
 			System.out.println();
@@ -51,8 +54,7 @@ public class Server {
 			Thread request = new Thread(connection);
 			request.start();
 		}
-	}
-	
+	}	
 
 	/**
 	 * 
@@ -69,5 +71,4 @@ public class Server {
 		}
 		System.out.println(res + DELIMITER+ ipAddress + DELIMITER + port2 +DELIMITER + requestedRes.get(res));
 	}
-
 }
