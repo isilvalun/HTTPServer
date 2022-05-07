@@ -6,6 +6,13 @@
 	 </condition>
 	<property environment="env"/>
 	<target name="run">
-		<echo></echo>
+		<delete dir="${maven.project.basedir}/target/antrun"/>
+		<delete dir="${maven.project.basedir}/target/archive-tmp"/>
+		<delete dir="${maven.project.basedir}/target/classes"/>
+		<delete dir="${maven.project.basedir}/target/generated-sources"/>
+		<delete dir="${maven.project.basedir}/target/HTTPServer"/>
+		<delete dir="${maven.project.basedir}/target/maven-archiver"/>
+		<delete dir="${maven.project.basedir}/target/maven-status"/>
+		<echo>*** OUTPUT FOLDER: ${maven.project.basedir}/target ***</echo>
 	</target>
 </project>

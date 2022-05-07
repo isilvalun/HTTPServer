@@ -46,6 +46,7 @@
 		<!-- 3rd party library versions -->
 		<slf4j.version>1.7.36</slf4j.version>
 		<logback.version>1.2.11</logback.version>
+		<picocli.version>4.6.3</picocli.version>
 	</properties>
 	<!-- LIFECYCLE DEFINITION -->
 	<build>
@@ -68,7 +69,7 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/3rd-party-libs</outputDirectory>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
 							<excludeTransitive>true</excludeTransitive>
 							<excludeClassifiers>resources</excludeClassifiers>
 							<includeTypes>jar</includeTypes>
@@ -153,6 +154,7 @@
 							<target>
 <!-- ** START OF ANT SCRIPT ** -->
 
+<property name="maven.project.basedir" value="${project.basedir}"/>
 <ant antfile="ant.xml" target="run" />
 
 <!-- ** END OF ANT SCRIPT ** -->
@@ -287,6 +289,17 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version><!--$NO-MVN-MAN-VER$-->
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>info.picocli</groupId>
+			<artifactId>picocli</artifactId>
+			<version>${picocli.version}</version><!--$NO-MVN-MAN-VER$-->
 			<exclusions>
 				<exclusion>
 					<groupId>*</groupId>
