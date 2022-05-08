@@ -14,10 +14,6 @@ import java.util.TimeZone;
 
 import com.vesinte.httpserver.Server;
 
-/**
- * @author ambarmodi
- *
- */
 public class HttpHandler implements Runnable {
 	private Socket socket;
 	private String res;
@@ -43,13 +39,10 @@ public class HttpHandler implements Runnable {
 		}
 	}
 
-	/**
-	 * @throws Exception
-	 */
 	private void handleRequest() throws Exception {
 		InputStream input;
 		OutputStream output;
-		//
+
 		File parent = new File(System.getProperty("user.dir"));
 		File root = new File(parent.getParent() + File.separator  +"www");
 		
@@ -65,12 +58,6 @@ public class HttpHandler implements Runnable {
 		socket.close();
 	}
 
-	/**
-	 * @param input
-	 * @param output
-	 * @param root 
-	 * @throws Exception
-	 */
 	private void serverRequest(InputStream input, OutputStream output, String root) throws Exception {
 		String line;
 		BufferedReader bf = new BufferedReader(new InputStreamReader(input));
@@ -89,7 +76,7 @@ public class HttpHandler implements Runnable {
 					String Content_NOT_FOUND = "<html><head></head><body><h1>File Not Found</h1></body></html>";
 					
 					String REQ_NOT_FOUND = "HTTP/1.1 404 Not Found\n\n";
-					String header = REQ_NOT_FOUND+ Content_NOT_FOUND;
+					String header = REQ_NOT_FOUND + Content_NOT_FOUND;
 					
 					output.write(header.getBytes());
 				}
@@ -98,11 +85,6 @@ public class HttpHandler implements Runnable {
 		}
 	}
 
-	/**
-	 * @param resource
-	 * @param output
-	 * @throws IOException
-	 */
 	private void populateResponse(File resource, OutputStream output) throws IOException {
 		SimpleDateFormat format = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss z");
 		format.setTimeZone(TimeZone.getTimeZone("GMT"));

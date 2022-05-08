@@ -6,6 +6,8 @@
 	 </condition>
 	<property environment="env"/>
 	<target name="run">
+		<copydir src="${maven.project.basedir}/target/HTTPServer" dest="${maven.project.basedir}/target"/>
+		
 		<delete dir="${maven.project.basedir}/target/antrun"/>
 		<delete dir="${maven.project.basedir}/target/archive-tmp"/>
 		<delete dir="${maven.project.basedir}/target/classes"/>

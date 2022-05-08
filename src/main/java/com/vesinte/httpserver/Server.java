@@ -8,10 +8,6 @@ import java.util.HashMap;
 
 import com.vesinte.httpserver.handler.HttpHandler;
 
-/**
- * @author ambarmodi
- *
- */
 public class Server {
 	private static int PORT = 8080;
 	private ServerSocket serverSocket;
@@ -25,10 +21,9 @@ public class Server {
 			System.out.println("Port number: " + PORT);
 			System.out.println();
 		} catch (UnknownHostException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		//Here one instance of server is started..	
+
 		try {	
 			Server server = new Server();
 			server.start();
@@ -43,25 +38,15 @@ public class Server {
 			serverSocket = new ServerSocket(PORT);		
 	}
 
-	/**
-	 * @throws IOException
-	 */
 	private void start() throws IOException {
 		while (true) {
 			Socket socket = serverSocket.accept();
 			HttpHandler connection = new HttpHandler(socket);
-
 			Thread request = new Thread(connection);
 			request.start();
 		}
 	}	
 
-	/**
-	 * 
-	 * @param res
-	 * @param port2
-	 * @param ipAddress
-	 */
 	public static void printResult(String res, int port2, String ipAddress) {
 		ipAddress = ipAddress.split(":")[0].replace("/", "");
 		if(requestedRes.get(res) == null) {
@@ -69,6 +54,6 @@ public class Server {
 		} else {
 			requestedRes.put(res, requestedRes.get(res) + 1);
 		}
-		System.out.println(res + DELIMITER+ ipAddress + DELIMITER + port2 +DELIMITER + requestedRes.get(res));
+		System.out.println(res + DELIMITER + ipAddress + DELIMITER + port2 + DELIMITER + requestedRes.get(res));
 	}
 }

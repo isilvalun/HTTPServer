@@ -108,6 +108,15 @@
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>${maven-jar-plugin.version}</version><!--$NO-MVN-MAN-VER$-->
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Manifest-Version>1.0</Manifest-Version>
+							<Main-Class>com.vesinte.httpserver.Server</Main-Class>
+							<Class-Path>lib/*.jar</Class-Path>
+						</manifestEntries>
+					</archive>
+				</configuration>
 			</plugin>
 			<!-- Maven POM / Repo install -->
 			<plugin>
